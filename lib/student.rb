@@ -82,7 +82,7 @@ class Student
   def self.first_X_students_in_grade_10(x)
     #selects all grade 10 students from database
     sql = <<-SQL
-    SELECT * FROM students WHERE grade = 10 
+    SELECT * FROM students WHERE grade = 10
     SQL
 
     student_array = DB[:conn].execute(sql).map do |row| #puts all grade 1 studnets into and array
@@ -90,10 +90,14 @@ class Student
     end
 
     student_array[0.. (x-1)] #returns first x out of array of all students grade 10
-                            
+
   end
 
-
+  def self.first_student_in_grade_10
+    sql = <<-SQL
+    SELECT * FROM students WHERE grade = 10 LIMIT 1
+    SQL
+  end
 
 
 end
