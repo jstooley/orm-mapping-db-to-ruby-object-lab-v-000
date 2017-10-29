@@ -91,7 +91,7 @@ class Student
     student_array[0.. (x-1)]
   end
 
-  
+
 
 
 end
