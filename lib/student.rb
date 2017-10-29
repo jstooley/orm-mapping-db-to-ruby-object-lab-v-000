@@ -16,6 +16,10 @@ class Student
     sql = <<-SQL
     SELECT * FROM students
     SQL
+
+    DB[:conn].execute(sql).map do |row|
+      self.new_fron_db(row)
+    end
   end
 
   def self.find_by_name(name)
