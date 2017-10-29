@@ -83,13 +83,12 @@ class Student
     sql = <<-SQL
     SELECT * FROM students WHERE grade = 10
     SQL
-    i = 0
-    while i < x
+    
       DB[:conn].execute(sql).map do |row|
-        i+=1
         self.new_from_db(row)
       end
     end
+    
   end
 
 
